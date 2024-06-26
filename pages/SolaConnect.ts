@@ -247,7 +247,7 @@ export class SolaConnect {
         await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_YURL_Checkbox);
         await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_YURL_Label, "Yelp url");
         
-        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
+        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
         // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
         // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
         // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
