@@ -69,6 +69,49 @@ export class SolaConnect {
     SelectFieldToExport_AllFields_UN_Label: string;
     SelectFieldToExport_AllFields_YURL_Checkbox: string;
     SelectFieldToExport_AllFields_YURL_Label: string;
+    SelectFieldToExport_AllFields_Biography_Checkbox: string;
+    SelectFieldToExport_AllFields_Biography_Label: string;
+    SelectFieldToExport_AllFields_BN_Checkbox: string;
+    SelectFieldToExport_AllFields_BN_Label: string;
+    SelectFieldToExport_AllFields_GPU_Checkbox: string;
+    SelectFieldToExport_AllFields_GPU_Label: string;
+    SelectFieldToExport_AllFields_IU_Checkbox: string;
+    SelectFieldToExport_AllFields_IU_Label: string;
+    SelectFieldToExport_AllFields_Nails_Checkbox: string;
+    SelectFieldToExport_AllFields_Nails_Label: string;
+    SelectFieldToExport_AllFields_Skin_Checkbox: string;
+    SelectFieldToExport_AllFields_Skin_Label: string;
+    SelectFieldToExport_AllFields_Tanning_Checkbox: string;
+    SelectFieldToExport_AllFields_Tanning_Label: string;
+    SelectFieldToExport_AllFields_TBR_Checkbox: string;
+    SelectFieldToExport_AllFields_TBR_Label: string;
+    SelectFieldToExport_AllFields_Walkins_Checkbox: string;
+    SelectFieldToExport_AllFields_Walkins_Label: string;
+    SelectFieldToExport_AllFields_BU_Checkbox: string;
+    SelectFieldToExport_AllFields_BU_Label: string;
+    SelectFieldToExport_AllFields_CA_Checkbox: string;
+    SelectFieldToExport_AllFields_CA_Label: string;
+    SelectFieldToExport_AllFields_Hair_Checkbox: string;
+    SelectFieldToExport_AllFields_Hair_Label: string;
+    SelectFieldToExport_AllFields_Makeup_Checkbox: string;
+    SelectFieldToExport_AllFields_Makeup_Label: string;
+    SelectFieldToExport_AllFields_Name_Checkbox: string;
+    SelectFieldToExport_AllFields_Name_Label: string;
+    SelectFieldToExport_AllFields_SGP_Checkbox: string;
+    SelectFieldToExport_AllFields_SGP_Label: string;
+    SelectFieldToExport_AllFields_TW_Checkbox: string;
+    SelectFieldToExport_AllFields_TW_Label: string;
+    SelectFieldToExport_AllFields_TU_Checkbox: string;
+    SelectFieldToExport_AllFields_TU_Label: string;
+    SelectFieldToExport_AllFields_Waxing_Checkbox: string;
+    SelectFieldToExport_AllFields_Waxing_Label: string;
+    SelectFieldToExport_AllFields_FromDate_Label: string;
+    SelectFieldToExport_AllFields_FromDate_Field: string;
+    SelectFieldToExport_AllFields_ToDate_Label: string;
+    SelectFieldToExport_AllFields_ToDate_Field: string;
+    SelectFieldToExport_AllFields_SAD_TextButton: string;
+    SelectFieldToExport_AllFields_Close_Button: string;
+    SelectFieldToExport_AllFields_Export_Button: string;
   
     constructor(page: Page) {
         this.page = page;
@@ -145,24 +188,52 @@ export class SolaConnect {
         this.SelectFieldToExport_AllFields_YURL_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Yelp url\"]/parent::label//input";
         this.SelectFieldToExport_AllFields_YURL_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Yelp url\"]";
         
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Checkbox = "";
-        // this.SelectFieldToExport_AllFields_SelectAll_Label = "";
+        this.SelectFieldToExport_AllFields_Biography_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Biography\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Biography_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Biography\"]";
+        this.SelectFieldToExport_AllFields_BN_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Business name\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_BN_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Business name\"]";
+        this.SelectFieldToExport_AllFields_GPU_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Google plus url\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_GPU_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Google plus url\"]";
+        this.SelectFieldToExport_AllFields_IU_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Instagram url\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_IU_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Instagram url\"]";
+        this.SelectFieldToExport_AllFields_Nails_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Nails\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Nails_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Nails\"]";
+        this.SelectFieldToExport_AllFields_Skin_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Skin\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Skin_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Skin\"]";
+        this.SelectFieldToExport_AllFields_Tanning_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Tanning\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Tanning_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Tanning\"]";
+        this.SelectFieldToExport_AllFields_TBR_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Total booknow revenue\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_TBR_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Total booknow revenue\"]";
+        this.SelectFieldToExport_AllFields_Walkins_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Walkins\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Walkins_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Walkins\"]";
+        
+        this.SelectFieldToExport_AllFields_BU_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Booking url\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_BU_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Booking url\"]";
+        this.SelectFieldToExport_AllFields_CA_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Created at\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_CA_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Created at\"]";
+        this.SelectFieldToExport_AllFields_Hair_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Hair\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Hair_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Hair\"]";
+        this.SelectFieldToExport_AllFields_Makeup_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Makeup\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Makeup_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Makeup\"]";
+        this.SelectFieldToExport_AllFields_Name_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Name\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Name_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Name\"]";
+        this.SelectFieldToExport_AllFields_SGP_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Sola genius platform\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_SGP_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Sola genius platform\"]";
+        this.SelectFieldToExport_AllFields_TW_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Teeth whitening\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_TW_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Teeth whitening\"]";
+        this.SelectFieldToExport_AllFields_TU_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Twitter url\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_TU_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Twitter url\"]";
+        this.SelectFieldToExport_AllFields_Waxing_Checkbox = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Waxing\"]/parent::label//input";
+        this.SelectFieldToExport_AllFields_Waxing_Label = "//h6[text()=\"All Fields\"]/ancestor::div//span[text()=\"Waxing\"]";
+
+        this.SelectFieldToExport_AllFields_FromDate_Label = "//span[text()=\"From Date:\"]";
+        this.SelectFieldToExport_AllFields_FromDate_Field = "//span[text()=\"From Date:\"]/following-sibling::div//fieldset";
+        this.SelectFieldToExport_AllFields_ToDate_Label = "//span[text()=\"To Date:\"]";
+        this.SelectFieldToExport_AllFields_ToDate_Field = "//span[text()=\"To Date:\"]/following-sibling::div//fieldset";
+
+        this.SelectFieldToExport_AllFields_SAD_TextButton = "button[class=\"MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root css-1ok43gd\"]";
+        this.SelectFieldToExport_AllFields_Close_Button = "button[class=\"MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root css-bnl3rg\"]";
+        this.SelectFieldToExport_AllFields_Export_Button = "button[class=\"MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled css-1bi6zj0\"]";
     }
   
     async goto_CMS_AllSolaPro_ExportPopup(){
@@ -247,24 +318,54 @@ export class SolaConnect {
         await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_YURL_Checkbox);
         await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_YURL_Label, "Yelp url");
         
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
-        // await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SelectAll_Checkbox);
-        // await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SelectAll_Label, "Select");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Biography_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Biography_Label, "Biography");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_BN_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_BN_Label, "Business name");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_GPU_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_GPU_Label, "Google plus url");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_IU_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_IU_Label, "Instagram url");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Nails_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Nails_Label, "Nails");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Skin_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Skin_Label, "Skin");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Tanning_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Tanning_Label, "Tanning");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_TBR_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_TBR_Label, "Total booknow revenue");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Walkins_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Walkins_Label, "Walkins");
+        
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_BU_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_BU_Label, "Booking url");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_CA_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_CA_Label, "Created at");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Hair_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Hair_Label, "Hair");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Makeup_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Makeup_Label, "Makeup");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Name_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Name_Label, "Name");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_SGP_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SGP_Label, "Sola genius platform");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_TW_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_TW_Label, "Teeth whitening");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_TU_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_TU_Label, "Twitter url");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Waxing_Checkbox);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_Waxing_Label, "Waxing");
+
+        await comAct.scrollToElement(this.SelectFieldToExport_AllFields_FromDate_Field);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_FromDate_Label, "From Date:");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_FromDate_Field);
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_ToDate_Label, "To Date:");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_ToDate_Field);
+
+        await comAct.verifyElementHasText(this.SelectFieldToExport_AllFields_SAD_TextButton, "Save As Defaults");
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Close_Button);
+        await comAct.verifyElementIsVisible(this.SelectFieldToExport_AllFields_Export_Button);
+
     }
 
 }
