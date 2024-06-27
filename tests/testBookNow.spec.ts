@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
+import { BookNow } from '../pages/BookNow';
 
 test.beforeEach(async({ page }) => {
     const commonAct = new CommonActions(page);
@@ -12,7 +13,12 @@ test.afterEach(async({ page }) => {
     await page.close();
 });
 
-test('Check default', async ({ page }) => {
+test('check default 1', async ({ page }) => {
+    const book = new BookNow(page);
+    await book.check_BookNow_Default();
+});
+
+test('Check elements exists', async ({ page }) => {
     const commonAct = new CommonActions(page);
     const expCurURL = 'https://feature-st-119-gloss-genius-book-now.dqcpcoh2cfgcv.amplifyapp.com/booknow';
     const location = await page.locator("[class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq']").getAttribute('placeholder');
@@ -64,4 +70,24 @@ test('Check default', async ({ page }) => {
     // next step is expected to fail, the text below the date field should not exist by default
     // expect.soft(await page.locator("//p[@class='MuiTypography-root MuiTypography-body1 font13 css-bfooly'][text()='Results from ' and ' to ']")).not.toBeAttached();
     expect.soft(await page.locator("//p[@class='MuiTypography-root MuiTypography-body1 font13 css-bfooly'][text()='Results from ' and ' to ']").isVisible());
+});
+
+// this one still fails
+test('Check element status after search', async ({ page }) => {
+    const book = new BookNow(page);
+    const comAct = new CommonActions(page);
+    
+    await comAct.fillUp(book.location_Field, "Polaris, Columbus, OH, USA");
+
+    page.on('dialog', async dialog => {
+        expect(dialog.type()).toContain('confirm')
+        expect(dialog.message()).toContain('Know your location')
+        await dialog.accept();
+    })
+
+    await page.keyboard.press('Enter');
+    await comAct.fillUp(book.services_Field, "Hair");
+    await page.keyboard.press('Enter');
+    await page.click(book.searchButton);
+
 });

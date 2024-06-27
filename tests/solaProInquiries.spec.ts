@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
+import exp from 'constants';
 
 test.describe.configure({ mode: 'serial' });
 
@@ -26,6 +27,12 @@ test('Fill up form', async({ page }) => {
 
     await commonAct.openURL(url);
     
+    page.on('dialog', async dialog => {
+        expect(dialog.type()).toContain('confirm')
+        expect(dialog.message()).toContain('We value your privacy');
+        await dialog.accept();
+    })
+
     await commonAct.type(state, 'AR');
     await commonAct.click("//li[@role='option'][text()='AR']");
     await commonAct.type(location, 'Sola Uptown');
