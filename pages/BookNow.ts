@@ -1,8 +1,10 @@
-import { Page, expect } from '@playwright/test';
+import { Browser, Page, expect } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
 
 export class BookNow {
     private page: Page;
+    private browser: Browser;
+
     location_Field: string;
     services_Field: string;
     date_Field: string;
@@ -10,8 +12,9 @@ export class BookNow {
     searchButton: string;
     locationAndServices_Text : string;
   
-    constructor(page: Page) {
+    constructor(page: Page, browser: Browser) {
         this.page = page;
+        this.browser = browser;
         
         this.location_Field = "input[name=\"location\"]";
         this.services_Field = "input[name=\"services\"]";
@@ -28,7 +31,7 @@ export class BookNow {
     // }
 
     async check_BookNow_Default() {
-        const comAct = new CommonActions(this.page);
+        const comAct = new CommonActions(this.page, this.browser);
         await expect.soft(this.page.locator(this.location_Field)).toBeFocused();
         await expect.soft(this.page.locator(this.services_Field)).not.toBeFocused();
         await expect.soft(this.page.locator(this.date_Field)).not.toBeFocused();

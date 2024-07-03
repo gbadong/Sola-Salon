@@ -6,10 +6,8 @@ test.afterEach(async({ page }) => {
     await page.close();
 });
 
-test('test SID-34', async({ page }) => {
-    const sc = new SolaConnect(page);
+test('test SID-34', async({ page, browser }) => {
+    const sc = new SolaConnect(page, browser);
     await sc.goto_CMS_AllSolaPro_ExportPopup();
     await sc.test_SID34();
 });
-
-

@@ -1,8 +1,10 @@
-import { Page, expect } from '@playwright/test';
+import { Browser, Page, expect } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
 
 export class Homepage {
     private page: Page;
+    private browser: Browser;
+
     searchBar: string;
     searchBar_Button: string;
     Header: string;
@@ -28,8 +30,9 @@ export class Homepage {
     navbarButton_BookAService: string;
     navbarButton_Country: string;
   
-    constructor(page: Page) {
+    constructor(page: Page, browser: Browser) {
         this.page = page;
+        this.browser = this.browser;
         
         this.navbarButton_Locations = "[class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular nav-toolbar css-i6s8oy\"] a[href=\"/locations\"] button";
         this.navbarButton_About = "[class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular nav-toolbar css-i6s8oy\"] a[href=\"/about\"] button";
@@ -61,13 +64,13 @@ export class Homepage {
     }
   
     async goto_Homepage(){
-        const comAct = new CommonActions(this.page);
+        const comAct = new CommonActions(this.page, this.browser);
         await comAct.openURL("https://qa-new.solasalonstudios.com/");
         await this.page.waitForLoadState('domcontentloaded');
     }
 
     async verify_AllElementsAreVisible() {
-        const comAct = new CommonActions(this.page);
+        const comAct = new CommonActions(this.page, this.browser);
 
         // check navbar elements
         await comAct.verifyElementHasText(this.navbarButton_Locations,"Locations");
@@ -99,6 +102,20 @@ export class Homepage {
         await comAct.verifyElementIsVisible(this.carouselButtonPrev);
         await comAct.verifyElementIsVisible(this.carouselButtonNext);
 
+    }
+  
+    async test_Search_FindALocation(){
+        const comAct = new CommonActions(this.page, this.browser);
+        await this.page.fill(this.searchBar ,"Garden City");
+        await this.page.keyboard.press("ENTER");
+        await this.page.click(this.searchBar_Button);
+    }
+  
+    async test_Search_LookingToBookAServiceInstead(){
+        const comAct = new CommonActions(this.page, this.browser);
+        await this.page.fill(this.searchBar ,"Garden City");
+        await this.page.keyboard.press("ENTER");
+        await this.page.click(this.alt_Button);
     }
 
 }

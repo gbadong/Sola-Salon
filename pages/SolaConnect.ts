@@ -1,8 +1,10 @@
-import { Page, expect } from '@playwright/test';
+import { Page, Browser } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
 
 export class SolaConnect {
     private page: Page;
+    private browser: Browser;
+
     contentTree_SolaPros: string;
     contentTree_SolaPros_AllSolaPros: string;
     SolaPros_AllSolaPros_ExportButton: string;
@@ -113,8 +115,9 @@ export class SolaConnect {
     SelectFieldToExport_AllFields_Close_Button: string;
     SelectFieldToExport_AllFields_Export_Button: string;
   
-    constructor(page: Page) {
+    constructor(page: Page, browser: Browser) {
         this.page = page;
+        this.browser = browser;
         
         this.contentTree_SolaPros = "//span[@class=\"MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u\"][text()=\"Sola Pros\"]/ancestor::li";
         this.contentTree_SolaPros_AllSolaPros = "//span[@class=\"MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u\"][text()=\"All Sola Pros\"]/ancestor::a[@href=\"/sola-pros\"]";
@@ -237,8 +240,9 @@ export class SolaConnect {
     }
   
     async goto_CMS_AllSolaPro_ExportPopup(){
-        const comAct = new CommonActions(this.page);
-        await comAct.openURL("https://qa-connect.solasalonstudios.com/");
+        const comAct = new CommonActions(this.page, this.browser);
+        // await comAct.openURL("https://qa-connect.solasalonstudios.com/");
+        await comAct.openURL("https://test-connect.solasalonstudios.com/sola-pros");
         await comAct.login("glenn.badong@outliant.com", "Lolzka24!");
         await this.page.waitForLoadState('domcontentloaded');
         await this.page.click(this.contentTree_SolaPros);
@@ -248,7 +252,7 @@ export class SolaConnect {
     }
 
     async test_SID34() {
-        const comAct = new CommonActions(this.page);
+        const comAct = new CommonActions(this.page, this.browser);
 
         // Verify all elements in the export popup
         await comAct.verifyElementHasText(this.SelectFieldToExport_ExportName, "Export Name:");

@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
 
-test.beforeEach(async({ page }) => {
-    const commonAct = new CommonActions(page);
+test.beforeEach(async({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     const url = 'https://qa-connect.solasalonstudios.com';
     await commonAct.openURL(url);
     });
@@ -11,8 +11,8 @@ test.afterEach(async({ page }) => {
     await page.close();
     });
         
-test('Check content tree buttons - system admin', async ({ page }) => {
-    const commonAct = new CommonActions(page);
+test('Check content tree buttons - system admin', async ({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     await commonAct.login('glenn.badong@outliant.com', 'Lolzka24!');
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='Home']");
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='CRM']");
@@ -107,8 +107,8 @@ test('Check content tree buttons - system admin', async ({ page }) => {
 
 });
 
-test('Check content tree buttons - admin', async ({ page }) => {
-    const commonAct = new CommonActions(page);
+test('Check content tree buttons - admin', async ({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     await commonAct.login('glenn.badong+admin@outliant.com', 'T3$tAccount');
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='CRM']");
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='Sola Pros']");
@@ -164,8 +164,8 @@ test('Check content tree buttons - admin', async ({ page }) => {
 
 });
         
-test('Check content tree buttons - franchisee', async ({ page }) => {
-    const commonAct = new CommonActions(page);
+test('Check content tree buttons - franchisee', async ({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     await commonAct.login('glenn.badong+franchisee@outliant.com', 'T3$tAccount');
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='CRM']");
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='Locations']");
@@ -203,8 +203,8 @@ test('Check content tree buttons - franchisee', async ({ page }) => {
 
 });
         
-test('Check content tree buttons - franchisee CRM tester', async ({ page }) => {
-    const commonAct = new CommonActions(page);
+test('Check content tree buttons - franchisee CRM tester', async ({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     await commonAct.login('glenn.badong+franchiseeTester@outliant.com', 'T3$tAccount');
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='CRM']");
     await commonAct.verifyTextElementIsVisible("//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-wbk34u'][text()='Locations']");

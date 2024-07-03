@@ -21,8 +21,8 @@ test.afterEach(async({ page }) => {
     await page.close();
 });
 
-test('Fill up form', async({ page }) => {
-    const commonAct = new CommonActions(page);
+test('Fill up form', async({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     const url = 'https://qa-new.solasalonstudios.com/why-sola';
 
     await commonAct.openURL(url);
@@ -52,8 +52,8 @@ test('Fill up form', async({ page }) => {
     await commonAct.verifyElementHasText(conf_location, 'Sola Uptown');
 });
 
-test('Verify inquiry in CMS', async({ page }) => {
-    const commonAct = new CommonActions(page);
+test('Verify inquiry in CMS', async({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     const url = 'https://qa-connect.solasalonstudios.com/crm/contact-inquiries';
     await commonAct.openURL(url);
     await commonAct.login('glenn.badong@outliant.com', 'Lolzka24!');

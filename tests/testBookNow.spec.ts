@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
 import { BookNow } from '../pages/BookNow';
 
-test.beforeEach(async({ page }) => {
-    const commonAct = new CommonActions(page);
+test.beforeEach(async({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     const url = 'https://feature-st-119-gloss-genius-book-now.dqcpcoh2cfgcv.amplifyapp.com/booknow';
     await commonAct.openURL(url);
 
@@ -13,13 +13,13 @@ test.afterEach(async({ page }) => {
     await page.close();
 });
 
-test('check default 1', async ({ page }) => {
-    const book = new BookNow(page);
+test('check default 1', async ({ page, browser }) => {
+    const book = new BookNow(page, browser);
     await book.check_BookNow_Default();
 });
 
-test('Check elements exists', async ({ page }) => {
-    const commonAct = new CommonActions(page);
+test('Check elements exists', async ({ page, browser }) => {
+    const commonAct = new CommonActions(page, browser);
     const expCurURL = 'https://feature-st-119-gloss-genius-book-now.dqcpcoh2cfgcv.amplifyapp.com/booknow';
     const location = await page.locator("[class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq']").getAttribute('placeholder');
     const services = await page.locator("input[name='services']").getAttribute('placeholder');
@@ -73,9 +73,9 @@ test('Check elements exists', async ({ page }) => {
 });
 
 // this one still fails
-test('Check element status after search', async ({ page }) => {
-    const book = new BookNow(page);
-    const comAct = new CommonActions(page);
+test('Check element status after search', async ({ page, browser }) => {
+    const book = new BookNow(page, browser);
+    const comAct = new CommonActions(page, browser);
     
     await comAct.fillUp(book.location_Field, "Polaris, Columbus, OH, USA");
 

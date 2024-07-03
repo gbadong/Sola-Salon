@@ -2,12 +2,8 @@ import { test, expect } from '@playwright/test';
 import { CommonActions } from '../objects/common.spec';
 import { Homepage } from '../pages/Homepage';
 
-test.beforeEach(async({ page }) => {
-    // const commonAct = new CommonActions(page);
-    // const url = 'https://qa-new.solasalonstudios.com/';
-    // await commonAct.openURL(url);
-
-    const home = new Homepage(page);
+test.beforeEach(async({ page, browser }) => {
+    const home = new Homepage(page, browser);
     await home.goto_Homepage();
 });
 
@@ -15,8 +11,8 @@ test.afterEach(async({ page }) => {
     await page.close();
 });
 
-test('verify all elements exists in homepage', async({ page }) => {
-    const home = new Homepage(page);
+test('verify all elements exists in homepage', async({ page, browser }) => {
+    const home = new Homepage(page, browser);
     await home.verify_AllElementsAreVisible();
 })
 
@@ -54,3 +50,29 @@ test('verify all elements exists in homepage', async({ page }) => {
 //     await commonAct.verifyElementIsVisible("[class='home-banner-img-content MuiBox-root css-gkupdd'] [class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-5.5 css-1falyz0'] [src='/images/right-icon.svg']");
 //     await commonAct.verifyElementHasText("[class='home-banner-img-content MuiBox-root css-gkupdd'] [class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-5.5 css-1falyz0'] [class='MuiTypography-root MuiTypography-body1 color-primary text-underline css-9l3uo3']", "Looking to book a service instead?");
 // });
+
+test('test_SolaMerch', async({ page, browser }) => {
+    const com = new CommonActions(page, browser);
+    const home = new Homepage(page, browser);
+    const context = browser.newContext();
+    // const oldPage = (await context).newPage();
+    
+    await com.scrollToElement("[href=\"https://thesolastore.com/\"]");
+    
+    // wait for a popup that should be closed
+    page.on('dialog', async dialog => {
+        expect(dialog.type()).toContain('confirm');
+        expect(dialog.message()).toContain("We value your privacy");
+        await dialog.accept();
+    })
+
+    // for new tab opened
+    const [newPage] = await Promise.all ([
+        (await context).waitForEvent('page')
+    ]);
+
+    await page.click("[href=\"https://thesolastore.com/\"]");
+    await newPage.click("(//span[text()=\"Home\"])[1]");
+    await newPage.waitForTimeout(2000);
+    await newPage.close();
+})

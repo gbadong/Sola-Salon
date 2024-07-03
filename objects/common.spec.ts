@@ -1,11 +1,12 @@
-import { Page, Dialog, expect } from '@playwright/test';
-import { Console } from 'console';
+import { Page, Dialog, expect, Browser } from '@playwright/test';
 
 export class CommonActions {
     private page: Page;
+    browser: Browser;
   
-    constructor(page: Page) {
+    constructor(page: Page, browser: Browser) {
       this.page = page;
+      this.browser = browser;
     }
   
     async openURL(url_used: string){
@@ -66,6 +67,17 @@ export class CommonActions {
     async fillUp(element: string, text: string) {
         await this.page.fill(element, text);
     }
+
+    async newPage() {
+        const context = this.browser.newContext();
+        const page = (await context).newPage();
+        const [newPage] = await Promise.all ([
+          (await context).waitForEvent('page')
+        ])
+      
+
+    }
+    
   
     // Add more reusable methods here
   }
