@@ -41,7 +41,7 @@ export class Homepage {
         this.navbarButton_News = "[class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular nav-toolbar css-i6s8oy\"] a[href=\"/news\"] button";
         this.navbarButton_ContactUs = "[class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular nav-toolbar css-i6s8oy\"] a[href=\"/contact-us#leaseStudio\"] button";
         this.navbarButton_FindYourSuite = "[class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular nav-toolbar css-i6s8oy\"] button[class=\"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium button-contained contained-button-slide-effect-secondary navbar-button primary-button css-1ydaw8c\"]";
-        this.navbarButton_BookAService = "[class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular nav-toolbar css-i6s8oy\"] a[href=\"/booknow\"] span";
+        this.navbarButton_BookAService = "a[aria-label=\"Book a service button which will take you to book a service page\"]";
         this.navbarButton_Country = "[class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular nav-toolbar css-i6s8oy\"] div[class=\"custom-country-box desktop-only MuiBox-root css-0\"]";
 
         this.Header = "[class=\"find-sola-salon-inner MuiBox-root css-0\"] [class=\"MuiTypography-root MuiTypography-h1 home-title-text color-dark-blue css-171h0ym\"]";
