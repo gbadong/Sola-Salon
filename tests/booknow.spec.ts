@@ -11,12 +11,12 @@ import { Homepage } from '../pages/Homepage';
 //     await page.waitForLoadState('domcontentloaded');
 //     });
 
-test.afterEach(async({ page }) => {
+test.afterEach(async ({ page }) => {
     await page.close();
-    });
+});
 
-test('navigate to booknow 1', async({ page, browser }) => {
-    const com = new CommonActions( page, browser );
+test('navigate to booknow 1', async ({ page, browser }) => {
+    const com = new CommonActions(page, browser);
     // const home = new Homepage( page, browser );
 
     await com.scrollToElement("a[aria-label=\"Book a service button which will take you to book a service page\"][href=\"/booknow\"]");
@@ -26,16 +26,16 @@ test('navigate to booknow 1', async({ page, browser }) => {
     expect(await com.getCurrentPageURL()).toMatch('https://uat-temp.solasalonstudios.com/booknow');
 });
 
-test('navigate to booknow 2', async({ page, browser }) => {
-    const com = new CommonActions( page, browser );
+test('navigate to booknow 2', async ({ page, browser }) => {
+    const com = new CommonActions(page, browser);
 
     await com.scrollToElement("a[class=\"cursor-pointer\"][href=\"/booknow\"]");
     await page.click("a[class=\"cursor-pointer\"][href=\"/booknow\"]");
     expect(await com.getCurrentPageURL()).toMatch('https://uat-temp.solasalonstudios.com/booknow');
 });
 
-test('navigate to booknow 3', async({ page, browser }) => {
-    const com = new CommonActions( page, browser );
+test('navigate to booknow 3', async ({ page, browser }) => {
+    const com = new CommonActions(page, browser);
     // const home = new Homepage( page, browser );
 
     // await com.scrollToElement("div[class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-n4dn4n\"] input");
@@ -48,7 +48,7 @@ test('navigate to booknow 3', async({ page, browser }) => {
 });
 
 test('test', async ({ page, browser }) => {
-    const com = new CommonActions( page, browser );
+    const com = new CommonActions(page, browser);
     await page.goto('https://uat-temp.solasalonstudios.com/');
     await page.getByPlaceholder('City, or ZIP code').click();
     await page.getByPlaceholder('City, or ZIP code').fill('Garden city');
@@ -57,4 +57,4 @@ test('test', async ({ page, browser }) => {
     await page.getByLabel('Clients').click();
     await page.locator('.location-result-btn > a:nth-child(2) > .MuiButtonBase-root').first().click();
     expect(await com.getCurrentPageURL()).toMatch('https://uat-temp.solasalonstudios.com/booknow');
-  });
+});
